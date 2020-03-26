@@ -64,8 +64,10 @@ void draw() {
   float [][] rz = Rz(4*theta);
   
   for (PVector c3D : cubo) {
-    PVector rc3D = Multiplica3x3PV(rz, c3D);
-    PVector c2D = Multiplica3x3PV(P, rc3D);
+    PVector rz_c3D = Multiplica3x3PV(rz, c3D);
+    PVector ry_c3D = Multiplica3x3PV(ry, rz_c3D);
+    PVector rx_c3D = Multiplica3x3PV(rx, ry_c3D);
+    PVector c2D = Multiplica3x3PV(P, rx_c3D);
     ellipse(c2D.x, c2D.y, 10, 10);
   } 
 }
