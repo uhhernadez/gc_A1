@@ -5,6 +5,12 @@ class Cubo3D {
     {0, 1, 0},
     {0, 0, 0}
   };
+  
+  float [][] Pp = {
+    {1, 0},
+    {0, 1}
+  };
+  
   Cubo3D() {
     cubo = new PVector[8];
     cubo[0] = new PVector(25, -25, 25);
@@ -24,6 +30,14 @@ class Cubo3D {
    xyz.y = P[1][0] * p.x + P[1][1] * p.y + P[1][2] *p.z;
    xyz.z = P[2][0] * p.x + P[2][1] * p.y + P[2][2] *p.z;
    return xyz;   
+  }
+  
+  PVector Perspectiva(float [][] P, PVector p, float d) {
+   float x, y;
+   x = P[0][0] * p.x + P[0][1] * p.y;
+   y = P[1][0] * p.x + P[1][1] * p.y;
+   float alpha = d/p.z;
+   return new PVector(alpha * x, alpha * y);   
   }
   
   float [][] Rx(float theta) {
@@ -74,10 +88,18 @@ class Cubo3D {
     } 
   }
   
-  void Dibujar() {
+  void DibujarOrtografico() {
     PVector [] cubo2D = new PVector[8];
     for(int k = 0; k < 8; k++) {
       cubo2D[k] = Multiplica3x3PV(P, cubo[k]);
+    }
+    DibujarCubo(cubo2D);
+  }
+  
+  void DibujarPerspectiva() {
+    PVector [] cubo2D = new PVector[8];
+    for(int k = 0; k < 8; k++) {
+      cubo2D[k] = Perspectiva(Pp, cubo[k], 30);
     }
     DibujarCubo(cubo2D);
   }
