@@ -9,8 +9,11 @@ void draw() {
   background(200);
   translate(256, 256);
   //float t = millis()/1000.0;  
-  cubo.RotarX(radians(1.0));
+  //cubo.RotarX(radians(1.0));
   //cubo.RotarY(radians(1.0));
   //cubo.RotarZ(radians(1.0));
+  //cubo.Trasladar(new PVector(1,0,0));
+  //cubo.Trasladar(new PVector(0,1,0));
+  cubo.Trasladar(new PVector(0,0,1));
   cubo.Dibujar();
 }

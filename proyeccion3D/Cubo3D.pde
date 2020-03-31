@@ -82,24 +82,34 @@ class Cubo3D {
     DibujarCubo(cubo2D);
   }
   
+  void Trasladar(PVector dt) {
+    for(int k = 0; k < 8; k++) {
+      cubo[k].add(dt);
+    }
+  }
+  
   void DibujarCubo(PVector [] c) {
      for(PVector p2D : c) {
        ellipse(p2D.x, p2D.y, 10, 10);
      }  
    
-    line(c[0].x, c[0].y, c[1].x, c[1].y);
-    line(c[1].x, c[1].y, c[2].x, c[2].y);
-    line(c[2].x, c[2].y, c[3].x, c[3].y);
-    line(c[3].x, c[3].y, c[0].x, c[0].y);
+    Linea(c[0],c[1]);
+    Linea(c[1],c[2]);
+    Linea(c[2],c[3]);
+    Linea(c[3],c[0]);
+   
+    Linea(c[4],c[5]);
+    Linea(c[5],c[6]);
+    Linea(c[6],c[7]);
+    Linea(c[7],c[4]);
     
-    line(c[4].x, c[4].y, c[5].x, c[5].y);
-    line(c[5].x, c[5].y, c[6].x, c[6].y);
-    line(c[6].x, c[6].y, c[7].x, c[7].y);
-    line(c[7].x, c[7].y, c[4].x, c[4].y);
-    
-    line(c[0].x, c[0].y, c[4].x, c[4].y);
-    line(c[1].x, c[1].y, c[5].x, c[5].y);
-    line(c[2].x, c[2].y, c[6].x, c[6].y);
-    line(c[3].x, c[3].y, c[7].x, c[7].y);
-  }  
+    Linea(c[0],c[4]);
+    Linea(c[1],c[5]);
+    Linea(c[2],c[6]);
+    Linea(c[3],c[7]);
+  }
+  
+  void Linea(PVector a, PVector b) {
+    line(a.x, a.y, b.x, b.y);
+  } 
 }
