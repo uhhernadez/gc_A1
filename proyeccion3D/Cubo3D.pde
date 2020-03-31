@@ -91,5 +91,15 @@ class Cubo3D {
     line(c[1].x, c[1].y, c[2].x, c[2].y);
     line(c[2].x, c[2].y, c[3].x, c[3].y);
     line(c[3].x, c[3].y, c[0].x, c[0].y);
+    
+    line(c[4].x, c[4].y, c[5].x, c[5].y);
+    line(c[5].x, c[5].y, c[6].x, c[6].y);
+    line(c[6].x, c[6].y, c[7].x, c[7].y);
+    line(c[7].x, c[7].y, c[4].x, c[4].y);
+    
+    line(c[0].x, c[0].y, c[4].x, c[4].y);
+    line(c[1].x, c[1].y, c[5].x, c[5].y);
+    line(c[2].x, c[2].y, c[6].x, c[6].y);
+    line(c[3].x, c[3].y, c[7].x, c[7].y);
   }  
 }
