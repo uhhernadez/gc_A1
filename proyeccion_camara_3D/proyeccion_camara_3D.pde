@@ -8,6 +8,7 @@ void setup() {
 }
 
 void draw() {
+  lights();
   camera(100, 100, 100,
          0, 0, 0,
          0, 0, -1);
