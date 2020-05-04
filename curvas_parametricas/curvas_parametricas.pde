@@ -3,12 +3,12 @@ float Ay;
 void setup() {
   size(1000, 1000);
   Ax = 100;
-  Ay = 50;
+  Ay = 100;
 }
 
 void draw() {
   translate(width/2.0, height/2.0);
-  float dt = radians(10);
+  float dt = radians(60);
   
   for (float theta = 0; theta < radians(360); theta = theta + dt) {
     float x = Ax * cos(theta);
