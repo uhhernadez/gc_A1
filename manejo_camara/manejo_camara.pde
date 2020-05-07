@@ -24,6 +24,6 @@ void draw() {
   float fov = PI/3.0;
   perspective(fov, float(width)/float(height), 
     0.1, 10000);
-  t += radians(0.05);
+  t += radians(1);
   t = (t > 2*PI)? 0: t;
 }
