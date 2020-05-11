@@ -22,6 +22,10 @@ class SusanaDistancia {
     pushMatrix();
     DibujarCabeza();
     cuerpo.Dibujar();
+    DibujarBrazoIzq();
+    DibujarBrazoDer();
+    DibujarPiernaIzq();
+    //DibujarPiernaDer();
     popMatrix();
   }
 
@@ -32,6 +36,27 @@ class SusanaDistancia {
     translate(0, -290) ;
     rotate(radians(r));
     cabeza.Dibujar();
+    popMatrix();
+  }
+  
+  void DibujarBrazoIzq() {
+    pushMatrix();
+      translate(65, -210);
+      brazo_izq.Dibujar();
+    popMatrix();
+  }
+  
+  void DibujarBrazoDer() {
+    pushMatrix();
+      translate(-65, -210);
+      brazo_der.Dibujar();
+    popMatrix();
+  }
+  
+  void DibujarPiernaIzq() {
+    pushMatrix();
+      translate(10, 150);
+      pierna_izq.Dibujar();
     popMatrix();
   }
 }
