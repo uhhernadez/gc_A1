@@ -18,52 +18,60 @@ class SusanaDistancia {
   }
 
   void Dibujar() {
-    scale(0.5);
+    float t = millis()/1000.0;
+    scale(0.2);
     pushMatrix();
-    DibujarCabeza();
+    DibujarCabeza(t, 2, 1.0);
     cuerpo.Dibujar();
-    DibujarBrazoIzq();
-    DibujarBrazoDer();
-    DibujarPiernaIzq();
-    DibujarPiernaDer();
+    DibujarBrazoIzq(t, 2, 10.0);
+    DibujarBrazoDer(t, 2, 10.0);
+    DibujarPiernaIzq(t, 2, 45.0);
+    DibujarPiernaDer(t, 2, 60.0);
     popMatrix();
   }
 
-  void DibujarCabeza() {
-    float t = millis()/1000.0;
-    float r = 10 * cos(2*PI*t);
+  void DibujarCabeza(float t, float f, float A) {
+    float r = A * cos(2*PI*f*t);
     pushMatrix();
     translate(0, -290) ;
     rotate(radians(r));
     cabeza.Dibujar();
     popMatrix();
   }
-  
-  void DibujarBrazoIzq() {
+
+  void DibujarBrazoIzq(float t, float f, float A) {
+    float r = A * cos(2*PI*f*t);
     pushMatrix();
-      translate(65, -210);
-      brazo_izq.Dibujar();
+    translate(65, -210);
+    rotate(radians(r));
+    brazo_izq.Dibujar();
     popMatrix();
   }
-  
-  void DibujarBrazoDer() {
+
+  void DibujarBrazoDer(float t, float f, float A) {
+    float r = A * cos(2*PI*f*t);
     pushMatrix();
-      translate(-65, -210);
-      brazo_der.Dibujar();
+    translate(-65, -210);
+    rotate(radians(r));
+    brazo_der.Dibujar();
     popMatrix();
   }
-  
-  void DibujarPiernaIzq() {
+
+  void DibujarPiernaIzq(float t, float f, float A) {
+    float r = A * sin(2*PI*f*t);
     pushMatrix();
-      translate(18, 120);
-      pierna_izq.Dibujar();
+    translate(18, 120);
+    rotate(radians(r)+radians(-A));
+    pierna_izq.Dibujar();
     popMatrix();
   }
-  
-  void DibujarPiernaDer() {
+
+  void DibujarPiernaDer(float t, float f, float A) {
+    float r = A * sin(2*PI*f*t);
     pushMatrix();
-      translate(-18, 120);
-      pierna_der.Dibujar();
+    translate(-18, 120);
+    rotate(radians(-r)+radians(A));
+    pierna_der.Dibujar();
     popMatrix();
   }
 }
