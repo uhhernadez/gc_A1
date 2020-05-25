@@ -16,4 +16,20 @@ void draw() {
   
   x = Lineal(x0, x1, t/T);
   Dibujar(x0, x1, t, x, 140, "Lineal");
+  
+  x = Coseno(x0, x1, t/T);
+  Dibujar(x0, x1, t, x, 190, "Coseno");
+  
+  x = EscalonSuave(x0, x1, t/T);
+  Dibujar(x0, x1, t, x, 240, "EscalonSuave");
+  
+  x = Aceleracion(x0, x1, t/T);
+  Dibujar(x0, x1, t, x, 290, "Aceleracion");
+  
+  x = Desaceleracion(x0, x1, t/T);
+  Dibujar(x0, x1, t, x, 340, "Desaceleracion"); 
+  
+  x = lerp(x0, x1, t/T);
+  Dibujar(x0, x1, t, x, 390, "Lerp");
+  
 }
