@@ -70,12 +70,17 @@ class Spline {
   }
   
   void Dibujar() {
+    strokeWeight(2);
     noFill();
     beginShape();
       for (PVector p: pts_) {
         vertex(p.x, p.y);
       }
     endShape();
+    fill(240, 0, 0);
+    circle(p0_.x, p0_.y, 10);
+    circle(p1_.x, p1_.y, 10);
+    circle(p2_.x, p2_.y, 10);
   }
 
 
